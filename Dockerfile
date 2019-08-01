@@ -13,16 +13,16 @@ RUN apt-get update && apt-get install -y \
 	--no-install-recommends \
 	&& rm -rf /var/lib/apt/lists/*
 
-ENV HOME /home/asdf
-RUN useradd --create-home --home-dir $HOME asdf
+ENV ASDF_HOME /home/asdf
+RUN useradd --create-home --home-dir $ASDF_HOME asdf
 
-WORKDIR $HOME
+WORKDIR $ASDF_HOME
 USER asdf
 
 RUN git clone https://github.com/asdf-vm/asdf.git ~/.asdf \
   && cd ~/.asdf \
   && git checkout "$(git describe --abbrev=0 --tags)" \
-  && /bin/bash -c ". $HOME/.asdf/asdf.sh \
+  && /bin/bash -c ". $ASDF_HOME/.asdf/asdf.sh \
   && asdf plugin-add golang https://github.com/kennyp/asdf-golang.git \
   && asdf plugin-add java https://github.com/halcyon/asdf-java.git \
   && asdf plugin-add yarn https://github.com/twuni/asdf-yarn.git \
