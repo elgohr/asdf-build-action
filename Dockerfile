@@ -1,7 +1,7 @@
 FROM ubuntu:19.10
 LABEL "com.github.actions.name"="ASDF Build"
 LABEL "com.github.actions.description"="Uses ASDF to provide a configurable build environment for Github Actions"
-LABEL "com.github.actions.icon"="anchor"
+LABEL "com.github.actions.icon"="settings"
 LABEL "com.github.actions.color"="blue"
 
 RUN apt-get update && apt-get install -y \
