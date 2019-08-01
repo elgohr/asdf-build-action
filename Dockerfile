@@ -15,7 +15,7 @@ RUN apt-get update && apt-get install -y \
 
 ENV HOME /github/home/
 
-RUN mkdir -p $HOME
+RUN mkdir -p $HOME \
   && git clone https://github.com/asdf-vm/asdf.git $HOME/.asdf \
   && cd $HOME/.asdf \
   && git checkout "$(git describe --abbrev=0 --tags)" \
