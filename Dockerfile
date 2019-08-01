@@ -13,10 +13,13 @@ RUN apt-get update && apt-get install -y \
 	--no-install-recommends \
 	&& rm -rf /var/lib/apt/lists/*
 
-RUN git clone https://github.com/asdf-vm/asdf.git ~/.asdf \
-  && cd ~/.asdf \
+ENV HOME /github/home/
+
+RUN mkdir -p $HOME
+  && git clone https://github.com/asdf-vm/asdf.git $HOME/.asdf \
+  && cd $HOME/.asdf \
   && git checkout "$(git describe --abbrev=0 --tags)" \
-  && /bin/bash -c ". ~/.asdf/asdf.sh \
+  && /bin/bash -c ". $HOME/.asdf/asdf.sh \
   && asdf plugin-add go https://github.com/kennyp/asdf-golang.git \
   && asdf plugin-add java https://github.com/halcyon/asdf-java.git \
   && asdf plugin-add yarn https://github.com/twuni/asdf-yarn.git \
