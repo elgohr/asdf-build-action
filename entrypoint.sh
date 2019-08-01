@@ -8,7 +8,7 @@ asdf plugin-add yarn https://github.com/twuni/asdf-yarn.git
 asdf plugin-add nodejs https://github.com/asdf-vm/asdf-nodejs.git
 asdf plugin-add kotlin https://github.com/missingcharacter/asdf-kotlin.git
 
-asdf install $LANGUAGE $VERSION
-asdf global $LANGUAGE $VERSION
+asdf install $ENVIRONMENT $VERSION
+asdf global $ENVIRONMENT $VERSION
 
 /bin/bash -c "$*"
