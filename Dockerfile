@@ -13,10 +13,8 @@ RUN apt-get update && apt-get install -y \
 	--no-install-recommends \
 	&& rm -rf /var/lib/apt/lists/*
 
-ENV HOME /github/home
-
-RUN mkdir -p $HOME \
-  && git clone https://github.com/asdf-vm/asdf.git $HOME/.asdf \
+ENV HOME /asdf
+RUN git clone https://github.com/asdf-vm/asdf.git $HOME/.asdf \
   && cd $HOME/.asdf \
   && git checkout "$(git describe --abbrev=0 --tags)" \
   && /bin/bash -c ". $HOME/.asdf/asdf.sh \
