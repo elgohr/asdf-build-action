@@ -1,4 +1,5 @@
 # ASDF-build-action
+[![Actions Status](https://wdp9fww0r9.execute-api.us-west-2.amazonaws.com/production/badge/elgohr/asdf-build-action)](https://wdp9fww0r9.execute-api.us-west-2.amazonaws.com/production/results/elgohr/asdf-build-action)
 
 Uses [ASDF](https://github.com/asdf-vm/asdf) to provide a configurable build environment for Github Actions.
 
