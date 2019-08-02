@@ -1,16 +1,11 @@
 # ASDF-build-action
+
 Uses [ASDF](https://github.com/asdf-vm/asdf) to provide a configurable build environment for Github Actions.
 
 ## Supported environments
-As there are many [plugins for ASDF](https://asdf-vm.com/#/plugins-all?id=plugin-list) and I don't want to pollute the action right away, at the moment there are the following supported environments:
 
-- go
-- java
-- kotlin
-- nodejs
-- yarn
-
-In case that you need another environment, please open a PR.
+Please see https://github.com/asdf-vm/asdf-plugins for supported environments.
+Furthermore take care, that some languages may have different identifiers (e.g. go is identified with golang).
 
 ## Usage
 
@@ -24,7 +19,7 @@ workflow "Run Go Tests" {
 action "Test" {
   uses = "elgohr/asdf-build-action@master"
   env = {
-    ENVIRONMENT = "go"
+    ENVIRONMENT = "golang"
     VERSION     = "1.12"
   }
   args = "go test ./..."
