@@ -1,0 +1,23 @@
+name: 'ASDF Build'
+author: 'Lars Gohr'
+branding:
+  icon: 'settings'
+  color: 'blue'
+description: 'Uses ASDF to provide a configurable build environment for Github Actions'
+inputs:
+  command:
+    description: 'The command to execute in ASDF build'
+    required: true
+  environment:
+    description: 'The environment to use for build'
+    required: true
+  version:
+    description: 'The version of the environment to use for build'
+    required: true
+env:
+  ENVIRONMENT: '${{ inputs.environment }}'
+  VERSION: '${{ inputs.version }}'
+args: ['${{ inputs.command }}']
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
